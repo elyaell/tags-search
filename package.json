@@ -1,0 +1,17 @@
+{
+  "name": "jquery-project",
+  "version": "1.0.0",
+  "description": "A simple project using jQuery for DOM manipulation and event handling.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "live-server src"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

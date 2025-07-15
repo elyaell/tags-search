@@ -1,0 +1,25 @@
+#tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#tags span,
+.tags span {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#tags .active {
+  background-color: #333 !important;
+  color: #fff !important;
+}
