@@ -41,7 +41,16 @@ $(function () {
   $("h1.index-title").each(function () {
     var indexTitle = this.textContent;
     var indexID = this.parentElement.id.replace("-content", "");
-    $("#index").append(`<div id='${indexID}'>${indexTitle}</div>`);
+    var constructID = `<div id='${indexID}'>${indexTitle}`;
+
+    $(`#${this.parentElement.id} h2`).filter(function (item) {
+      var subTitle = this.textContent;
+      var subID = indexID + "-" + this.id;
+      constructID += `<span href='#${subID}'>${subTitle}</span>`;
+    });
+
+    constructID += "</div>";
+    $("#index").append(constructID);
   });
 });
 

@@ -36,6 +36,13 @@ body {
   padding: 20px;
   background-color: var(--secondary-color);
   border-right: 6px solid var(--primary-color);
+
+  div {
+    span {
+      display: block;
+      margin-left: 30px;
+    }
+  }
 }
 
 #pages {
