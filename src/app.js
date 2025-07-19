@@ -10,28 +10,47 @@ $(function () {
       })
       .get();
 
-    // Si aucun tag n'est actif, afficher toutes les races
+    // Si aucun tag n'est actif, afficher toutes les items
     if (activeTags.length === 0) {
-      $(".race").show();
+      $(".item").show();
       return;
     }
 
-    // Cacher toutes les races
-    $(".race").hide();
+    // Cacher toutes les items
+    $(".item").hide();
 
-    // Afficher les races qui contiennent exactement les mêmes tags
-    $(".race")
+    // Afficher les items qui contiennent exactement les mêmes tags
+    $(".item")
       .filter(function () {
-        const raceTags = $(this)
+        const itemTags = $(this)
           .find(".tags span")
           .map(function () {
             return $(this).text().toLowerCase();
           })
           .get();
 
-        // Retourner toutes les races qui contiennent les x tags sélectionnés
-        return activeTags.every((tag) => raceTags.includes(tag));
+        // Retourner toutes les items qui contiennent les x tags sélectionnés
+        return activeTags.every((tag) => itemTags.includes(tag));
       })
       .show();
+  });
+});
+
+$(function () {
+  $("#pages>div").css("display", "none");
+  $("#pages>div").removeClass("active");
+
+  $("#intro-content").css("display", "block");
+  $("#intro").addClass("active");
+
+  $("#index>div").on("click", function () {
+    var labelID = "#" + this.id;
+    var contentID = labelID + "-content";
+
+    $("#pages>div").css("display", "none");
+    $(contentID).css("display", "block");
+
+    $("#index>div").removeClass("active");
+    $(labelID).addClass("active");
   });
 });
