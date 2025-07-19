@@ -36,6 +36,16 @@ $(function () {
   });
 });
 
+// Transform each h1 into a clickable index entry
+$(function () {
+  $("h1.index-title").each(function () {
+    var indexTitle = this.textContent;
+    var indexID = this.parentElement.id.replace("-content", "");
+    $("#index").append(`<div id='${indexID}'>${indexTitle}</div>`);
+  });
+});
+
+// Update the content with the corresponding page
 $(function () {
   $("#pages>div").css("display", "none");
   $("#pages>div").removeClass("active");

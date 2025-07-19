@@ -5,3 +5,4 @@
 - Index and pages distinct
 - JS for pages change
 - Colors
+- Automatic index entries from content
