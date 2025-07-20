@@ -41,16 +41,13 @@ $(function () {
   $("h1.index-title").each(function () {
     var indexTitle = this.textContent;
     var indexID = this.parentElement.id.replace("-content", "");
-    var constructID = `<div id='${indexID}'>${indexTitle}`;
+    $("#index").append(`<div id='${indexID}'>${indexTitle}</div>`);
 
     $(`#${this.parentElement.id} h2`).filter(function (item) {
       var subTitle = this.textContent;
-      var subID = indexID + "-" + this.id;
-      constructID += `<span href='#${subID}'>${subTitle}</span>`;
+      var subID = indexID + "-" + this.parentElement.id;
+      $("#index").append(`<span id='${subID}'>${subTitle}</span>`);
     });
-
-    constructID += "</div>";
-    $("#index").append(constructID);
   });
 });
 
@@ -62,8 +59,24 @@ $(function () {
   $("#intro-content").css("display", "block");
   $("#intro").addClass("active");
 
+  $("#index>span").on("click", function () {
+    var anchorID = `#${this.id.split("-")[1]}`; // Get the anchor ID from the span
+    var labelID = `#${this.id.split("-")[0]}`; // Get the label ID from the span
+    var contentID = `${labelID}-content`;
+
+    $("#pages>div").css("display", "none");
+    $(contentID).css("display", "block");
+
+    // Scroll to the anchor position
+    var pos = $(anchorID).position();
+    $(document).scrollTop(pos.top);
+
+    $("#index>div").removeClass("active");
+    $(labelID).addClass("active");
+  });
+
   $("#index>div").on("click", function () {
-    var labelID = "#" + this.id;
+    var labelID = `#${this.id}`;
     var contentID = labelID + "-content";
 
     $("#pages>div").css("display", "none");
