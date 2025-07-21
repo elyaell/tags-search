@@ -131,8 +131,8 @@ body {
   display: inline-block;
   padding: 5px 10px;
   border-radius: 15px;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: var(--secondary-color);
+  color: var(--body-color);
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
@@ -142,6 +142,6 @@ body {
 }
 
 #tags .active {
-  background-color: #333 !important;
-  color: #fff !important;
+  background-color: var(--primary-color) !important;
+  color: var(--body-color) !important;
 }

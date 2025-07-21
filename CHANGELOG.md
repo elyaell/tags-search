@@ -5,6 +5,7 @@
 - Add expand and collapse buttons for cards
 - Automatic tags entries from existing tags
 - Add filler texts
+- Add cute css for tags buttons
 
 ## [Unpublished] - 2025-07-20
 
