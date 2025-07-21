@@ -86,3 +86,22 @@ $(function () {
     $(labelID).addClass("active");
   });
 });
+
+// Expand the card when clicked on title or expand button
+$(function () {
+  $(".item-title-expand>i").on("click", function () {
+    if ($(this).hasClass("bi-arrows-angle-expand")) {
+      var item = $(this).closest(".item");
+      $(item).addClass("expanded");
+
+      $(this).removeClass("bi-arrows-angle-expand");
+      $(this).addClass("bi-arrows-angle-contract");
+    } else {
+      var item = $(this).closest(".item");
+      $(item).removeClass("expanded");
+
+      $(this).removeClass("bi-arrows-angle-contract");
+      $(this).addClass("bi-arrows-angle-expand");
+    }
+  });
+});
