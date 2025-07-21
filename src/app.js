@@ -1,4 +1,29 @@
 $(function () {
+  // Transform each h1 into a clickable index entry
+  $("h1.index-title").each(function () {
+    var indexTitle = this.textContent;
+    var indexID = this.parentElement.id.replace("-content", "");
+    $("#index").append(`<div id='${indexID}'>${indexTitle}</div>`);
+
+    $(`#${this.parentElement.id} h2`).filter(function (item) {
+      var subTitle = this.textContent;
+      var subID = indexID + "-" + this.parentElement.id;
+      $("#index").append(`<span id='${subID}'>${subTitle}</span>`);
+    });
+  });
+
+  // Transform each tag into a clickage index tag
+  var tags = [];
+  $(".tags span").each(function () {
+    var tagText = this.textContent;
+    if (!tags.includes(tagText)) {
+      tags.push(tagText);
+      $("#tags").append(`<span>${tagText}</span>`);
+    }
+  });
+});
+
+$(function () {
   $("#tags span").on("click", function () {
     // Basculer la classe active sur le tag cliqué
     $(this).toggleClass("active");
@@ -33,21 +58,6 @@ $(function () {
         return activeTags.every((tag) => itemTags.includes(tag));
       })
       .show();
-  });
-});
-
-// Transform each h1 into a clickable index entry
-$(function () {
-  $("h1.index-title").each(function () {
-    var indexTitle = this.textContent;
-    var indexID = this.parentElement.id.replace("-content", "");
-    $("#index").append(`<div id='${indexID}'>${indexTitle}</div>`);
-
-    $(`#${this.parentElement.id} h2`).filter(function (item) {
-      var subTitle = this.textContent;
-      var subID = indexID + "-" + this.parentElement.id;
-      $("#index").append(`<span id='${subID}'>${subTitle}</span>`);
-    });
   });
 });
 

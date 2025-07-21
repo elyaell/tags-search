@@ -3,6 +3,8 @@
 ## [Unpublished] - 2025-07-21
 
 - Add expand and collapse buttons for cards
+- Automatic tags entries from existing tags
+- Add filler texts
 
 ## [Unpublished] - 2025-07-20
 
