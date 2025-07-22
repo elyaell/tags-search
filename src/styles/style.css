@@ -145,3 +145,42 @@ body {
   background-color: var(--primary-color) !important;
   color: var(--body-color) !important;
 }
+
+#index {
+  & div.active {
+    & {
+      font-weight: bold;
+
+      &::before {
+        content: ">";
+        margin-right: 5px;
+        color: var(--primary-color);
+      }
+
+      span {
+        color: var(--pages-color) !important;
+        font-weight: normal !important;
+      }
+    }
+
+    .subindex {
+      height: auto;
+      transition: height 0.5s ease-in-out;
+
+      span {
+        height: auto;
+        font-size: 16px;
+        transition: height 0.5s ease-in-out;
+      }
+    }
+  }
+
+  .subindex {
+    height: 0;
+
+    span {
+      height: 0;
+      font-size: 0;
+    }
+  }
+}

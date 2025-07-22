@@ -5,10 +5,17 @@ $(function () {
     var indexID = this.parentElement.id.replace("-content", "");
     $("#index").append(`<div id='${indexID}'>${indexTitle}</div>`);
 
-    $(`#${this.parentElement.id} h2`).filter(function (item) {
+    // transform each h2 into a clickable index entry
+    if ($(this).has("h2")) {
+      $(`#${indexID}`).append(`<div class='subindex'></div>`);
+    }
+
+    $(`#${this.parentElement.id} h2`).filter(function () {
       var subTitle = this.textContent;
-      var subID = indexID + "-" + this.parentElement.id;
-      $("#index").append(`<span id='${subID}'>${subTitle}</span>`);
+      var subID = indexID + "-" + this.parentElement.parentElement.id;
+      $(`#${indexID}>.subindex`).append(
+        `<span id='${subID}'>${subTitle}</span>`
+      );
     });
   });
 
@@ -69,7 +76,7 @@ $(function () {
   $("#intro-content").css("display", "block");
   $("#intro").addClass("active");
 
-  $("#index>span").on("click", function () {
+  $("#index>.subindex>span").on("click", function () {
     var anchorID = `#${this.id.split("-")[1]}`; // Get the anchor ID from the span
     var labelID = `#${this.id.split("-")[0]}`; // Get the label ID from the span
     var contentID = `${labelID}-content`;

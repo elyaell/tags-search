@@ -1,5 +1,9 @@
 # Changelog
 
+## [Unpublished] - 2025-07-22
+
+- Add expand to subindex list + css
+
 ## [Unpublished] - 2025-07-21
 
 - Add expand and collapse buttons for cards
